@@ -7,33 +7,36 @@ Sure, let's design the one-server web infrastructure for www.foobar.com.
    We have one server with the IP address 8.8.8.8.
 
 3. Domain Name
-   The domain name, www.foobar.com, is configured with a DNS record that points to our server's IP address (8.8.8.8). The domain name acts as a human-readable alias for our server's IP address.
+   The domain name, www.foobar.com, is configured with a DNS record that points to our server's IP address (8.8.8.8). The domain name acts as a hu   man-readable alias for our server's IP address.
 
 4. DNS Record
-   The www record in www.foobar.com is a CNAME (Canonical Name) record, which is an alias of the domain name foobar.com. It points to the domain name, which resolves to the server's IP address.
+   The www record in www.foobar.com is a CNAME (Canonical Name) record, which is an alias of the domain name foobar.com. It points to the domain     name, which resolves to the server's IP address.
 
 5. Web Server (Nginx)
-   Nginx serves as our web server. Its role is to handle incoming HTTP requests from users' browsers and serve static content or route requests to the application server based on the requested URL. Nginx also handles SSL termination and can serve as a reverse proxy.
+   Nginx serves as our web server. Its role is to handle incoming HTTP requests from users' browsers and serve static content or route requests to   the application server based on the requested URL. Nginx also handles SSL termination and can serve as a reverse proxy.
 
 6. Application Server
-   The application server hosts our code base. It's responsible for executing dynamic code, processing requests, interacting with the database, and generating dynamic content to be served to users via the web server. Common application servers include Node.js, Django, Flask, Ruby on Rails, etc.
+   The application server hosts our code base. It's responsible for executing dynamic code, processing requests, interacting with the database, 
+   and generating dynamic content to be served to users via the web server. Common application servers include Node.js, Django, Flask, Ruby on Rai   ls, etc.
 
 7. Application Files (Code Base)
-   Our application files contain the logic and resources required to generate dynamic content for the website. This could include HTML templates, CSS stylesheets, JavaScript code, server-side scripts, etc.
+   Our application files contain the logic and resources required to generate dynamic content for the website. This could include HTML templates,    CSS stylesheets, JavaScript code, server-side scripts, etc.
 
 8. Database (MySQL)
-   MySQL serves as our database management system. It stores and manages the website's data, such as user accounts, posts, comments, etc. The application server communicates with the database to retrieve or update data as required by user requests.
+   MySQL serves as our database management system. It stores and manages the website's data, such as user accounts, posts, comments, etc. The appl   ication server communicates with the database to retrieve or update data as required by user requests.
 
 9. Communication with User's Computer
-   When a user requests the website www.foobar.com, their computer sends an HTTP request to the server's IP address (8.8.8.8). The request is routed to the web server (Nginx), which then forwards the request to the application server if dynamic content is required. The application server processes the request, retrieves data from the database if needed, generates a response, and sends it back to the user's computer via the web server.
+   When a user requests the website www.foobar.com, their computer sends an HTTP request to the server's IP address (8.8.8.8). The request is rout   ed to the web server (Nginx), which then forwards the request to the application server if dynamic content is required. The application server    processes the request, retrieves data from the database if needed, generates a response, and sends it back to the user's computer via the web s	 erver.
 
 Issues with this Infrastructure
 
 1. SPOF (Single Point of Failure)
-   Since we have only one server, if it goes down for any reason, the entire website becomes inaccessible. This creates a single point of failure, increasing the risk of downtime.
+   Since we have only one server, if it goes down for any reason, the entire website becomes inaccessible. This creates a single point of failure,   increasing the risk of downtime.
 
-2. Downtime during Maintenance
-   When maintenance is needed, such as deploying new code that requires restarting the web server, the website will experience downtime. During this time, users won't be able to access the website.
+2.  Limited Scalability
+     With only one server, we face limitations in handling incoming traffic. If the traffic exceeds the server's capacity, the website may become      slow or unresponsive. Scaling horizontally (adding more servers) becomes challenging with this setup.
 
-3. Limited Scalability
-   With only one server, we face limitations in handling incoming traffic. If the traffic exceeds the server's capacity, the website may become slow or unresponsive. Scaling horizontally (adding more servers) becomes challenging with this setup.
+3. Downtime during Maintenance
+   When maintenance is needed, such as deploying new code that requires restarting the web server, the website will experience downtime. During th   is time, users won't be able to access the website.
+
+
