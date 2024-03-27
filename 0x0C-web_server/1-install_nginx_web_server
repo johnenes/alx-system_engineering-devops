@@ -1,0 +1,30 @@
+#!/usr/bin/env bash
+
+#configures  a new ubuntu machine by installing 
+#Nginx that will listwning on port 80
+#server a page that return a hello world string
+#
+
+
+echo -e "upating and installing Nginx.\n"
+sudo apt update
+sudo apt-get install nginx -y
+
+
+echo -e "\nsettting up some minor things.\n"
+
+#starting nginx server
+sudo service nginx start
+
+
+#creating default back
+cp /var/www/html/index.nginx-debian.html /var/www/html/index.nginx-debian.html
+
+
+#creating new index 
+echo  "hello  world!" > /var/www/html/index.nginx-debian.html
+
+#Restarting nginx
+sudo service nginx restart
+
+
