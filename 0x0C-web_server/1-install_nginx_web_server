@@ -1,19 +1,8 @@
 #!/usr/bin/env bash
+# installs nginx and configure it to listen on port 80
+# print "Hello World"
 
-#configures  a new ubuntu machine by installing 
-#Nginx that will listwning on port 80
-#server a page that return a hello world string
-#
-
-
-echo -e "upating and installing Nginx.\n"
-sudo apt update
-sudo apt-get install nginx -y
-
-#creating new index 
-echo  "hello  world!" > /var/www/html/index.nginx-debian.html
-
-#Restarting nginx
-sudo service nginx restart
-
-
+sudo apt-get -y update
+sudo apt-get -y install nginx
+echo 'Hello World!' > /var/www/html/index.nginx-debian.html
+sudo service nginx start
