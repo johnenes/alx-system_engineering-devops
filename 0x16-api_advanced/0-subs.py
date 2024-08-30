@@ -10,7 +10,8 @@ def number_of_subscribers(subreddit):
     Returns:
         number of subscribers to the subreddit,
         or 0 if subreddit requested is invalid"""
-    headers = {'User-Agent': 'xica369'}
+    
+    headers = {'User-Agent': 'Mozilla/5.0 (Windows NT 10.0; Win64; x64)'}
     url = "https://www.reddit.com/r/{}/about.json".format(subreddit)
     response = requests.get(url, headers=headers, allow_redirects=False)
 
